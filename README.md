@@ -27,7 +27,7 @@ installation required, just download and run.
 Reads your Coinbase CSV export and produces CRA-compliant output files
 for your Canadian tax return. Calculates Schedule 3 / T1 line values
 including proceeds, ACB, and taxable capital gains.
-
+and traces original purchase dollars (CAD) through every transaction using FIFO (First In, First Out) lot accounting. Reports what your remaining holdings actually cost you — with live market prices for instant P/L visibility.
 **No Python required — download the exe and run it directly.**
 
 ---
