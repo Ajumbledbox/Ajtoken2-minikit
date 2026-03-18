@@ -9,10 +9,11 @@ installation required, just download and run.
 
 > **⚠ Important Notice:** These tools are designed to assist with Canadian
 > cryptocurrency tax reporting.
+> 
 > Cryptocurrency tax rules are complex and subject to change. All output
-> must be independently verified before filing with the CRA. These tools
-> are not a substitute for professional tax advice. **You are solely
-> responsible for the accuracy of your tax filings.**
+> must be independently verified before filing with the CRA.
+
+**You are solely responsible for the accuracy of your tax filings.**
 
 > **Looking for the full application?**
 > The complete AJToken2 desktop app with full CRA tax reporting, ACB
