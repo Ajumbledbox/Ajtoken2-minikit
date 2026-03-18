@@ -8,7 +8,7 @@ Lightweight companions to the full AJToken2 desktop application — no
 installation required, just download and run.
 
 > **⚠ Important Notice:** These tools are designed to assist with Canadian
-> cryptocurrency tax reporting but **accuracy is not guaranteed**.
+> cryptocurrency tax reporting.
 > Cryptocurrency tax rules are complex and subject to change. All output
 > must be independently verified before filing with the CRA. These tools
 > are not a substitute for professional tax advice. **You are solely
