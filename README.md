@@ -1,5 +1,5 @@
 # Ajtoken2-minikit
-Standalone tools and scripts from the AJToken2 toolkit — lightweight companions to the full AJToken2 desktop application.
+
 
 **© 2025-2026 Ajumbledbox. All rights reserved.**
 
@@ -30,7 +30,7 @@ for your Canadian tax return. Calculates Schedule 3 / T1 line values
 including proceeds, adjusted cost base, and taxable capital gains using
 FIFO (First In, First Out) lot accounting.
 
-**No Python required — download the exe and run it directly.**
+**Self-contained executable — no installation required. Just download and run.**
 
 **What It Produces**
 - `cra_packet_<year>.html` — Schedule 3 / T1 summary with CRA line values and other-income guidance
@@ -47,17 +47,30 @@ FIFO (First In, First Out) lot accounting.
 
 **Quick Start**
 
-Requirements: None if using the exe. Python 3.8+ if running the script directly (standard library only, no pip installs).
+**How to Run**
 
-| Command | What You Get |
+1. Download `Ajtoken2.SingleScript.exe` from the releases page
+2. Place it in any folder on your machine
+3. Double-click to run — a terminal window will open
+4. Drag your Coinbase CSV file into the terminal window when prompted, or type the full path
+5. Enter the tax year when prompted (e.g. 2025)
+6. The tool will detect any Send transactions and ask you to confirm whether each one was a transfer to your own wallet or a payment to someone else — answer carefully as this affects your capital gains calculation
+7. Output files appear in the same folder as the exe when complete
+
+**Output Files**
+
+| File | Contents |
 |---|---|
-| `Ajtoken2.SingleScript.exe --csv my_export.csv --year 2025` | CRA packet for 2025 tax year |
-| `python Ajtoken2.SingleScript.py --csv my_export.csv --year 2025` | Same, running from Python source |
+| `cra_packet_<year>.html` | Open in any browser — your complete Schedule 3 / T1 summary with all CRA line values and a transaction-by-transaction proof table |
+| `tax_detail_<year>.csv` | Full math trail of every acquisition and disposition with running ACB — use this to verify the calculations |
+| `line_breakdown_<year>.csv` | Each disposition mapped to its CRA line — useful for manually cross-checking your return |
+| `other_income_<year>.csv` | Staking rewards, airdrops, and Coinbase Earn entries for Schedule 4 line 12100 — only created if entries exist |
 
-**Important:** Before running, you must correctly identify all internal
-wallet-to-wallet transfers in your CSV. Sends between your own wallets
-are not dispositions — if they are not flagged as internal transfers,
-the tool will treat them as sales and produce incorrect capital gains.
+**Important:** When you run the tool it will detect every Send transaction 
+in your CSV and ask you to confirm whether each one was a transfer to your 
+own wallet or a payment to someone else. Answer carefully — Send transactions 
+between your own wallets are not taxable disposals. Incorrect answers will 
+produce wrong capital gains figures on your CRA return.
 
 **Supported Transaction Types**
 
@@ -112,7 +125,7 @@ unrealized P/L in CAD.
 A **Portfolio Total** row sums key columns across all tokens.
 
 **Quick Start**
-
+**When the executable is available we are looking to adapt the current methods available with these aspects**
 Requirements: Python 3.8+, `openpyxl` for Excel output (`pip install openpyxl`), internet connection for live prices.
 
 | Command | What You Get |
@@ -141,7 +154,7 @@ Both tools use the same FIFO methodology:
 2. Each buy (including receives, converts, staking rewards) creates a **lot** with original quantity and fee-inclusive CAD cost
 3. Each sell (including sends, negative converts) **consumes** the oldest lot first (FIFO)
 4. Remaining lots represent unsold inventory with original purchase dollars preserved
-5. USDC is tracked with full FIFO lot tracking using synthetic counterparty transactions
+5. USDC is fully tracked with full FIFO lot tracking.
 6. CAD uses a running-balance method
 
 ---
