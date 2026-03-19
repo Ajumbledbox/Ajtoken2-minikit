@@ -202,4 +202,4 @@ All crypto donations go directly to a personal wallet — no middleman, no fees.
 
 ---
 
-**© 2025-2026 Ajumbledbox. All rights reserved.**
+**© 2013-2026 Ajumbledbox. All rights reserved.**
