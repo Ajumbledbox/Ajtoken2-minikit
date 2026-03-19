@@ -159,6 +159,28 @@ Both tools use the same FIFO methodology:
 
 ---
 
+## Beyond Canada — International Use
+
+While AJToken2 is built around Canadian CRA requirements, the core 
+methodology applies to any investor who tracks crypto using weighted 
+average cost basis (ACB) — a method used in the UK, Australia, and 
+many other countries.
+
+The full desktop application includes built-in FIFO lot tracking and 
+complete transaction history alongside the ACB calculations — giving 
+any crypto investor accurate cost basis tracking and P&L visibility 
+regardless of their tax jurisdiction.
+
+The MiniKit companion tools extend this further with standalone 
+portfolio pricing and CRA tax packet generation for users who want 
+lightweight tools without the full application.
+
+If you hold crypto on Coinbase and want accurate cost basis tracking 
+and P&L visibility — wherever you are — AJToken2 provides a solid 
+free foundation.
+
+---
+
 ## Important Disclaimers
 
 These tools are provided **"AS IS"** without warranty of any kind, express
