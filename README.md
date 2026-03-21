@@ -237,5 +237,10 @@ All crypto donations go directly to a personal wallet — no middleman, no fees.
 | LTC | Litecoin | `LMb1gPvkeFvoLznGTnA6fT3usHPABDnNcd` |
 
 ---
+## Downloads
 
+| Tool | Download |
+|---|---|
+| CRA Tax Packet Generator | [ajtoken2-minikit.v0.4.54.exe](https://github.com/Ajumbledbox/Ajtoken2-minikit/releases/tag/Ajtoken2-minikit.v0.4.54) |
+| Current Pricing Tool | [ajtoken2.CP.v0.1.11.03.21.2026.1322.hours.N.exe](https://github.com/Ajumbledbox/Ajtoken2-minikit/releases/tag/Ajtoken2-minikit.v0.4.54) |
 **© 2013-2026 Ajumbledbox. All rights reserved.**
