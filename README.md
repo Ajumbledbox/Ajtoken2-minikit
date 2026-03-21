@@ -1,7 +1,7 @@
 # Ajtoken2-minikit
 
 
-**© 2025-2026 Ajumbledbox. All rights reserved.**
+**© 2013-2026 Ajumbledbox. All rights reserved.**
 
 A collection of standalone tools and scripts from the AJToken2 toolkit.
 Lightweight companions to the full AJToken2 desktop application — no
@@ -86,14 +86,24 @@ produce wrong capital gains figures on your CRA return.
 
 ---
 
-## Coming Soon
-
 ### AJToken2 Current Pricing Tool
 
 Reads your Coinbase CSV export and traces original purchase dollars (CAD)
 through every transaction using FIFO lot tracking. Shows your current
 portfolio value using live prices from CoinMarketCap with realized and
 unrealized P/L in CAD.
+
+**Available as a standalone GUI application and as a Python script.**
+
+**How to Run the GUI Application**
+
+1. Download the `.exe` from the releases page
+2. Place it in any folder on your machine
+3. Double-click to run — a window opens
+4. On first launch, read and accept the Terms of Use and Liability Agreement
+5. Click Browse to select your Coinbase CSV file
+6. Choose All Tokens or Single Token mode and click Run
+7. Results appear in the table with live pricing
 
 **Key Features**
 - **FIFO Lot Tracking** — Every buy creates a lot. Every sell consumes the oldest lots first. Remaining lots show exactly what you paid (fee-inclusive CAD)
@@ -102,8 +112,10 @@ unrealized P/L in CAD.
 - **Total P/L** — One number answering "across everything I've bought and sold, am I up or down?"
 - **USDC Break-even** — CAD-adjusted price target to recover your full CAD investment at today's exchange rate
 - **Fee-Adjusted Break-even** — Break-even accounting for Coinbase Advanced Trade's 0.6% base fee
-- **CSV Comparison Mode** — Process two CSV exports from different time periods with delta analysis
-- **Excel Workbook Output** — Multi-sheet .xlsx with summary, per-token lot sheets, and conditional formatting (green/red P/L)
+- **View Lots** — Click any asset to see individual lot detail in a popup window. Multiple lot windows can be open simultaneously.
+- **CSV Comparison Mode** — Compare two CSV exports from different time periods with a 3-panel view: delta table showing what changed, plus both summaries side by side
+- **Export** — Export to CSV or multi-sheet Excel workbook (.xlsx) with summary and per-token lot sheets
+- **Font Size** — Adjustable font size for all tables and labels via View menu
 
 **Output Columns**
 
@@ -114,7 +126,8 @@ unrealized P/L in CAD.
 | Purchase Value (CAD) | Original fee-inclusive CAD paid for held tokens |
 | Curr.$.CAD | Live CAD price from CoinMarketCap |
 | Mrkt.V.CAD | Remaining Qty × Current Price |
-| Curr.P/L | Market Value − Purchase Value |
+| Curr.P/L.CAD | Market Value − Purchase Value (in CAD) |
+| Curr.P/L.USDC | Market Value − Purchase Value (in USDC terms) |
 | Real.P/L | Cumulative gain/loss from all completed sells |
 | Total P/L | Complete picture combining held value and realized gains/losses |
 | Total USDC Cost | Aggregate USDC spent on remaining holdings |
@@ -124,18 +137,19 @@ unrealized P/L in CAD.
 
 A **Portfolio Total** row sums key columns across all tokens.
 
-**Quick Start**
-**When the executable is available we are looking to adapt the current methods available with these aspects**
+**Python Script Version**
+
+The Current Pricing Tool is also available as a Python script for users who prefer command-line operation.
+
 Requirements: Python 3.8+, `openpyxl` for Excel output (`pip install openpyxl`), internet connection for live prices.
 
 | Command | What You Get |
 |---|---|
-| `python ajtokenCurrentPricing.py` | Single token (ETH default) — lot-by-lot breakdown |
-| `python ajtokenCurrentPricing.py --asset DOGE` | Single token (DOGE) — lot-by-lot breakdown |
-| `python ajtokenCurrentPricing.py --all` | All tokens — summary table with live prices and P/L |
-| `python ajtokenCurrentPricing.py --all --workbook lots.xlsx` | All tokens — terminal + multi-sheet Excel workbook |
-| `python ajtokenCurrentPricing.py --all --output summary.csv` | All tokens — terminal + CSV export |
-| `python ajtokenCurrentPricing.py --csv myfile.csv --all` | Use a custom CSV file |
+| `python ajtokenCurrentPricing.py --csv myfile.csv` | Single token (ETH default) — lot-by-lot breakdown |
+| `python ajtokenCurrentPricing.py --csv myfile.csv --asset DOGE` | Single token (DOGE) — lot-by-lot breakdown |
+| `python ajtokenCurrentPricing.py --csv myfile.csv --all` | All tokens — summary table with live prices and P/L |
+| `python ajtokenCurrentPricing.py --csv myfile.csv --all --workbook lots.xlsx` | All tokens — terminal + multi-sheet Excel workbook |
+| `python ajtokenCurrentPricing.py --csv myfile.csv --all --output summary.csv` | All tokens — terminal + CSV export |
 
 **Comparison Mode** — Compare two CSV exports from different time periods:
 
@@ -148,7 +162,7 @@ python ajtokenCurrentPricing.py --csv jan_export.csv --csv2 mar_export.csv --all
 
 ## How FIFO Lot Tracking Works
 
-Both tools use the same FIFO methodology:
+All tools use the same FIFO methodology:
 
 1. Reads all transactions from your Coinbase CSV, sorted chronologically
 2. Each buy (including receives, converts, staking rewards) creates a **lot** with original quantity and fee-inclusive CAD cost
